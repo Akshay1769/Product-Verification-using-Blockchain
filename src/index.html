@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fake Product Identification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container-fluid px-md-5">
+			<div class="row justify-content-between">
+				<div class="col-md-8 order-md-last">
+					<div class="row">
+						<div class="col-md-6 text-center">
+						<!-- <h1>Blockchain </h1>-->
+							<a class="navbar-brand" href="index.html">Fake Product Identification <span>through Blockchain</span></a>
+						</div>
+						<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
+							<form action="#" class="searchform order-lg-last">
+			        </form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div class="social-media">
+		    		
+	        </div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid">
+	    
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	        	<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+			  	<li class="nav-item"><a href="#" onclick="openLogin()" class="nav-link">Manufacturer</a></li>
+                <li class="nav-item"><a href="#" onclick="openSeller()" class="nav-link">Seller</a></li>
+                <li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+	</section>
+
+	<div class="container-fluid px-md-5">
+		<div class="row justify-content-between">
+			<div class="col-md-12 order-md-last">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<!-- <a class="navbar-brand" href="index.html">WELCOME </a> -->
+					</div>
+					<center><img src="https://woolypooly.com/en/blog/wp-content/uploads/2023/06/The-Future-of-Blockchain.jpg" height="500" width="1440"></center>
+					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
+						
+						<form action="#" class="searchform order-lg-last">
+				  
+				</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 d-flex">
+				<div class="social-media">
+				
+		</div>
+	</div>
+	</section> 
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/web3.min.js"></script>
+	<script src="js/truffle-contract.js"></script>
+     
+	<!-- Manufacturer Login Modal -->
+<div id="loginModal" style="display:none; position: fixed; top: 25%; left: 35%; z-index: 9999; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #000; width: 300px;">
+  <div class="modal-header"><h4>Manufacturer Login</h4></div>
+  <input type="text" id="loginUser" placeholder="User ID" class="form-control my-2">
+  <input type="password" id="loginPass" placeholder="Password" class="form-control my-2">
+  <button onclick="validateLogin()" class="btn btn-primary">Login</button>
+  <button onclick="closeLogin()" class="btn btn-secondary">Cancel</button>
+  <p id="loginError" style="color:red;"></p>
+</div>
+
+<!-- Seller Login Modal -->
+<div id="sellerModal" style="display:none; position: fixed; top: 25%; left: 35%; z-index: 9999; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #000; width: 300px;">
+  <div class="modal-header"><h4>Seller Login</h4></div>
+  <input type="text" id="sellerUser" placeholder="User ID" class="form-control my-2">
+  <input type="password" id="sellerPass" placeholder="Password" class="form-control my-2">
+  <button onclick="validateSeller()" class="btn btn-primary">Login</button>
+  <button onclick="closeSeller()" class="btn btn-secondary">Cancel</button>
+  <p id="sellerError" style="color:red;"></p>
+</div>
+
+<script>
+  function openLogin() {
+    document.getElementById('loginModal').style.display = 'block';
+  }
+
+  function closeLogin() {
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('loginError').innerText = '';
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+  }
+
+  function validateLogin() {
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value.trim();
+    if (user === "admin" && pass === "admin123") {
+      window.location.href = "manufacturer.html";
+    } else {
+      document.getElementById('loginError').innerText = "Invalid credentials!";
+    }
+  }
+
+  function openSeller() {
+    document.getElementById('sellerModal').style.display = 'block';
+  }
+
+  function closeSeller() {
+    document.getElementById('sellerModal').style.display = 'none';
+    document.getElementById('sellerError').innerText = '';
+    document.getElementById('sellerUser').value = '';
+    document.getElementById('sellerPass').value = '';
+  }
+
+  function validateSeller() {
+    const user = document.getElementById('sellerUser').value.trim();
+    const pass = document.getElementById('sellerPass').value.trim();
+    if (user === "seller" && pass === "seller123") {
+      window.location.href = "seller.html";
+    } else {
+      document.getElementById('sellerError').innerText = "Invalid credentials!";
+    }
+  }
+</script>
+
+	</body>
+</html>
