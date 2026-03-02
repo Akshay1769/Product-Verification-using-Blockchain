@@ -26,8 +26,13 @@ App = {
         } catch (error) {
             console.error("User denied MetaMask connection:", error);
         }
+    } else if (window.web3) {
+        App.web3Provider = window.web3.currentProvider;
+        web3 = new Web3(window.web3.currentProvider);
+        console.log("Legacy dapp browser detected");
+        return App.initContract();
     } else {
-        alert("MetaMask not detected. Please install MetaMask.");
+        console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     }
 },
 
